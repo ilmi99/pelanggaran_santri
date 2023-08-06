@@ -1,0 +1,40 @@
+<link href="/static/print/style.css" rel="stylesheet" type="text/css" />
+
+<div id="container">
+  <h1 align="center">
+    <strong style="font-family:'Times New Roman', Times, serif">
+  LAPORAN DATA PELANGGARAN</strong></h1>
+  <div id="body">
+                    <table id="datatable-buttons" class="table table-striped table-bordered" border="1" style="width: 100%">
+                      <thead>
+                        <tr>
+                          <td>No</td>
+                          <th>ID Pelanggaran</th>
+                          <th>Nama Santri</th>
+                          <th>Kategori</th>
+                          <th>Tanggal Kejadian</th>
+                          <th>Keterangan</th>
+                          <th>Hukuman</th>
+                          <th>Nama Pengurus</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for tampil in LP_pelanggaran %}
+                          <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{tampil.id_pelanggaran}}</td>
+                            <td>{{tampil.nama_santri}}</td>
+                            <td>{{tampil.kategori}}</td>
+                            <td>{{tampil.tgl_kejadian}}</td>
+                            <td>{{tampil.keterangan}}</td>
+                            <td>{{tampil.hukuman}}</td>
+                            <td>{{tampil.nama_pengurus}}</td>
+              
+</tr>
+{% endfor %}
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              <script type="text/javascript">print();</script>

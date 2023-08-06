@@ -1,0 +1,95 @@
+{% include "style_atas_pengurus.html" %}
+<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>FORM INPUT PELANGGARAN SANTRI</h2>                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <br />
+                    <form id="demo-form2" class="form-horizontal form-label-left" method="post">
+                      {% csrf_token %}
+
+                      <input type="hidden" name="nama_kamar" value="{{proses_santri.nama_kamar}}">
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">ID Pelanggaran <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" name="id_pelanggaran" value="PL-2373{{kode_otomatis}}" readonly>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Nama Santri <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="last-name" name="nama_santri" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Nama Santri" value="{{proses_santri.nama_santri}}" readonly>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Kategori Pelanggaran <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select class="form-control" name="kategori" required>
+                            <option value="">--select--</option>
+                            <option>Ringan</option>
+                            <option>Sedang</option>
+                            <option>Berat</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Tanggal Kejadian<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="date" id="last-name" name="tgl_kejadian" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Kejadian">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Keterangan <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <textarea class="form-control" name="keterangan" required rows="8"></textarea>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
+                          Hukuman <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="last-name" name="hukuman" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Hukuman">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
+                          Pengurus <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="last-name" name="nama_pengurus" required="required" class="form-control col-md-7 col-xs-12" value="{{user}}" readonly>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
+                          Nomor HP <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="last-name" name="nomer_hp" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Nomor HP" maxlength="12" value="{{proses_santri.nomer_hp}}">
+                        </div>
+                      </div>
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button type="submit" class="btn btn-success">Simpan</button>
+              <a href="{% url 'Pelanggaran_pengurus' %}"><button class="btn btn-danger">Batal</button></a>
+                          
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+{% include "style_bawah_pengurus.html" %}

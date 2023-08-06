@@ -1,0 +1,66 @@
+{% include "style_atas.html" %}
+<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>FORM INPUT DATA PENGURUS SANTRI</h2>                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <br />
+                    <form id="demo-form2" class="form-horizontal form-label-left" method="post">
+                      {% csrf_token %}
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nama Pengurus <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" name="nama_pengurus" placeholder="Enter Nama Pengugrus" value="{{edit_pengurus.nama_pengurus}}">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Staff <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="last-name" name="staff" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Staff" value="{{edit_pengurus.staff}}">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">No Telepon <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="last-name" name="no_telepon" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Nomor Telepon" maxlength="12" value="{{edit_pengurus.no_telpon}}">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Username<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="last-name" name="username" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Username" value="{{edit_pengurus.username}}">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Email <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="last-name" name="email" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Email" value="{{edit_pengurus.email}}">
+                        </div>
+                      </div>
+
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button type="submit" class="btn btn-success">Simpan</button>
+                          <a href="{% url 'Pengurus' %}"><button class="btn btn-danger">Batal</button></a>
+              <button class="btn btn-primary" type="reset">Reset</button>
+                          
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+{% include "style_bawah.html" %}

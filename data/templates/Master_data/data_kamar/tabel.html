@@ -1,0 +1,53 @@
+{% include "style_atas.html" %}
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2><i class="fa fa-user"></i> FORM TABEL KAMAR</h2>                    
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <p class="text-muted font-13 m-b-30">
+          <a href="{% url 'Tambah_kamar' %}" class="btn btn-large btn-warning"><i class="fa fa-plus"></i> Tambah Data</a>
+        </p>
+        {% if messages %}
+        {% for info in messages %}
+        <script>alert('{{info}}');location='{% url "Kamar" %}';</script>
+        {% endfor %}
+        {% endif %}
+        <table id="datatable-buttons" class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <td>No</td>
+              <th>Kode Kamar</th>
+              <th>Nama Kamar</th>
+              <th>Kapasitas</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for tampil in tampil %}
+              <tr>
+                <td>{{forloop.counter}}</td>                            
+                <td>{{tampil.kode_kamar}}</td>
+                <td>{{tampil.nama_kamar}}</td>
+                <td>{{tampil.kapasitas}}</td>
+                <td> <a href="{% url 'edit_kamar' tampil.id %}" class="btn btn-xs btn-success" title="Edit" onclick="return confirm('Apakah Anda Yakin Ingin Mengedit Data')">
+                      <i class="ace-icon fa fa-pencil bigger-130"></i>
+                      </a>
+                      <a href="{% url 'hapus_kamar' tampil.id %}" class="btn btn-xs btn-danger" title="Hapus" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data')">
+                      <i class="ace-icon fa fa-trash-o bigger-130"></i>
+                      </a>    
+                  </td>
+              </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% include "style_bawah.html" %}

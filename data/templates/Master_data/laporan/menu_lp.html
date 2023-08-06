@@ -1,0 +1,35 @@
+{% include "style_atas.html" %}
+
+          <div class="">
+            <div class="row top_tiles">
+              <div class="animated flipInY col-lg-5 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-file-o"></i></div>
+                  <div class="count">Laporan Pengurus</div>                  
+                  <a href="{% url 'LP_Pengurus' %}" target="_blank" class="btn btn-large btn-warning"><i class="fa fa-print"></i> Cetak Data</a>
+                </div>
+              </div>
+
+				<div class="animated flipInY col-lg-7 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-file-o"></i></div>
+                  <div class="count">Laporan Pelanggaran</div>                  
+                  <a href="{% url 'LP_pelanggaran' %}" target="_blank" class="btn btn-large btn-warning"><i class="fa fa-print"></i> Cetak Data</a>
+                </div>
+              </div>
+              <div class="animated flipInY col-lg-5 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-file-o"></i></div>
+                  <div class="count">Laporan Santri</div>
+                  <a href="{% url 'LP_santri' %}" target="_blank" class="btn btn-large btn-warning"><i class="fa fa-print"></i> Cetak Data</a>
+                </div>
+              </div>
+
+
+          </div>
+      </div>
+
+
+  
+
+{% include "style_bawah.html" %}

@@ -1,0 +1,40 @@
+<link href="/static/print/style.css" rel="stylesheet" type="text/css" />
+
+<div id="container">
+  <h1 align="center">
+    <strong style="font-family:'Times New Roman', Times, serif">
+  LAPORAN DATA SANTRI</strong></h1>
+  <div id="body">
+                    <table id="datatable-buttons" class="table table-striped table-bordered" style="width: 100%" border="1">
+                      <thead>
+                        <tr>
+                          <td>No</td>
+                          <th>ID Santri</th>
+                          <th>Nama Santri</th>
+                          <th>Tempat Tanggal Lahir</th>
+                          <th>Alamat</th>
+                          <th>Pendidikan</th>
+                          <th>Nama Wali</th>
+                          <th>Nomer HP</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for tampil in LP_santri %}
+                          <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{tampil.id_santri}}</td>
+                            <td>{{tampil.nama_santri}}</td>
+                            <td>{{tampil.tempat_tgl_lahir}}</td>
+                            <td>{{tampil.alamat}}</td>
+                            <td>{{tampil.pendidikan}}</td>
+                            <td>{{tampil.nama_wali}}</td>
+                            <td>{{tampil.nomer_hp}}</td>
+                        
+</tr>
+{% endfor %}
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+<script type="text/javascript">print();</script>

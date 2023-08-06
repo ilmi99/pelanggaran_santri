@@ -1,0 +1,80 @@
+{% include "style_atas.html" %}
+<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>FORM INPUT DATA GURU</h2>                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <br />
+                    <form id="demo-form2" class="form-horizontal form-label-left" method="post">
+                      {% csrf_token %}
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">NIP <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" name="nip" placeholder="Enter NIP" >
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Nama Guru <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="last-name" name="nama_guru" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Nama Guru">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Staff <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="last-name" name="staff" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Staff">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Tempat Tanggal Lahir <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="last-name" name="tempat_tgl_lahir" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Tempat Tanggal Lahir">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Alamat Guru<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="last-name" name="alamat" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Alamat Guru">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Bidang Studi Yang Diampu <span class="required">*</span>
+                        </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" id="last-name" name="bidang_studi_yang_diampu" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Bidang Studi Yang Diampu">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
+                          Nomor HP <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="last-name" name="nomer_hp" required="required" class="form-control col-md-7 col-xs-12" placeholder="Enter Nomor HP" maxlength="13">
+                        </div>
+                      </div>
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button type="submit" class="btn btn-success">Simpan</button>
+                          <a href="{% url 'Santri' %}"><button class="btn btn-danger">Batal</button></a>
+						  <button class="btn btn-primary" type="reset">Reset</button>
+                          
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+{% include "style_bawah.html" %}
