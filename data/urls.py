@@ -43,8 +43,7 @@ urlpatterns = [
     path(r'Tambah_Pengurus/', views.Tambah_Pengurus, name='Tambah_Pengurus'),
     path(r'hapus_pengurus/?P<hapus_pg>[0-9]+)', views.Hapus_Pengurus, name='hapus_Pengurus'),
     path(r'edit_Pengurus/?P<id_pg>[0-9]+)', views.Edit_Pengurus, name='edit_Pengurus'),
-
-    path(r'Alumni/', views.Data_Alumni, name='Alumni'),   
+  
     # # # pelanggaran pengurus
     path(r'Pelanggaran_pengurus/', views.Data_Pelanggaran_pengurus, name='Pelanggaran_pengurus'),
     path(r'list_santri_pengurus/', views.list_santri_pengurus, name='list_santri_pengurus'),

@@ -20,15 +20,6 @@ class Model_pengurus(models.Model):
 	class Meta:
             verbose_name_plural = "Model_pengurus"
 
-class Model_alumni(models.Model):
-	published = models.DateTimeField(auto_now_add = True)
-	updated = models.DateTimeField(auto_now = True)
-			
-	def __str__(self):
-		return "{}.{}".format(self.id, self.nama_alumni)
-	class Meta:
-            verbose_name_plural = "Model_alumni"
-
 class Model_guru(models.Model):
 	nip	= models.CharField(max_length = 30,blank=True, null=True)
 	nama_guru= models.CharField(max_length = 30,blank=True, null=True)

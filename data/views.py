@@ -556,9 +556,3 @@ def LP_santri(request):
 	}
 	return render(request, 'Master_data/laporan/LP_santri.html',  context)	
 
-def Data_Alumni(request):
-	tampil_alumni = Model_alumni.objects.all()
-	context = {	
-	'tampil_alumni': tampil_alumni,
-	}
-	return render(request, 'Master_data/data_pengurus/tabel.html',  context)	
