@@ -8,7 +8,7 @@ from .forms import RegisterForm
 from .decorators import tolakhalaman_ini, ijinkan_pengguna, pilihan_login
 from django.contrib.auth.decorators import login_required
 
-from .models import Model_guru, Model_pengurus, Model_santri2, Model_pelanggaran2, Model_kamar, Model_pendidikan
+from .models import Model_alumni, Model_guru, Model_pengurus, Model_santri2, Model_pelanggaran2, Model_kamar, Model_pendidikan
 import hashlib
 
 @tolakhalaman_ini
@@ -555,3 +555,10 @@ def LP_santri(request):
 	'LP_santri': LP_santri,
 	}
 	return render(request, 'Master_data/laporan/LP_santri.html',  context)	
+
+def Data_alumni(request):
+	tampil_alumni = Model_alumni.objects.all()
+	context = {	
+	'tampil_alumni': tampil_alumni,
+	}
+	return render(request, 'Master_data/data_pengurus/tabel.html',  context)	
