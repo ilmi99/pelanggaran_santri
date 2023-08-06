@@ -8,7 +8,7 @@ from .forms import RegisterForm
 from .decorators import tolakhalaman_ini, ijinkan_pengguna, pilihan_login
 from django.contrib.auth.decorators import login_required
 
-from .models import Model_alumni, Model_guru, Model_pengurus, Model_santri2, Model_pelanggaran2, Model_kamar, Model_pendidikan
+from .models import Model_guru, Model_pengurus, Model_santri2, Model_pelanggaran2, Model_kamar, Model_pendidikan
 import hashlib
 
 @tolakhalaman_ini
