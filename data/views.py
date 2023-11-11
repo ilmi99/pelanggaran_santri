@@ -518,7 +518,7 @@ def Data_Pelanggaran(request):
 	'data_pelanggaran': data_pelanggaran,
 	}
 	return render(request, 'Master_data/data_pelanggaran/tabel.html',  context)	
-
+# pondok
 
 # laporan menu
 
