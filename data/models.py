@@ -20,32 +20,34 @@ class Model_pengurus(models.Model):
 	class Meta:
             verbose_name_plural = "Model_pengurus"
 
-class Model_guru(models.Model):
-	nip	= models.CharField(max_length = 30,blank=True, null=True)
-	nama_guru= models.CharField(max_length = 30,blank=True, null=True)
-	staff=models.CharField(max_length = 30,blank=True, null=True)
-	tempat_tgl_lahir=models.CharField(max_length = 30,blank=True, null=True)
-	alamat=models.CharField(max_length = 30,blank=True, null=True)
-	bidang_studi_yang_diampu =models.CharField(max_length = 30,blank=True, null=True)
-	nomer_hp=models.CharField(max_length = 15,blank=True, null=True)
+# class Model_guru(models.Model):
+# 	nip	= models.CharField(max_length = 30,blank=True, null=True)
+# 	nama_guru= models.CharField(max_length = 30,blank=True, null=True)
+# 	staff=models.CharField(max_length = 30,blank=True, null=True)
+# 	tempat_lahir	=models.CharField(max_length = 35,blank=True, null=True)
+# 	tgl_lahir	=models.CharField(max_length = 35,blank=True, null=True)
+# 	alamat=models.CharField(max_length = 30,blank=True, null=True)
+# 	bidang_studi_yang_diampu =models.CharField(max_length = 30,blank=True, null=True)
+# 	nomer_hp=models.CharField(max_length = 15,blank=True, null=True)
 
-	published = models.DateTimeField(auto_now_add = True)
-	updated = models.DateTimeField(auto_now = True)
+# 	published = models.DateTimeField(auto_now_add = True)
+# 	updated = models.DateTimeField(auto_now = True)
 			
-	def __str__(self):
-		return "{}.{}".format(self.id,self.nama_guru)
-	class Meta:
-            verbose_name_plural = "Model_guru"
+# 	def __str__(self):
+# 		return "{}.{}".format(self.id,self.nama_guru)
+# 	class Meta:
+#             verbose_name_plural = "Model_guru"
 
 class Model_santri2(models.Model):
-	id_santri	= models.CharField(max_length = 8)
-	nama_santri	= models.CharField(max_length = 30)
-	nama_kamar	= models.CharField(max_length = 30)
-	tempat_tgl_lahir	=models.CharField(max_length = 35)
-	alamat	=models.CharField(max_length = 50)
-	pendidikan	=models.CharField(max_length = 1500)
-	nama_wali	=models.CharField(max_length = 30)
-	nomer_hp	=models.CharField(max_length = 13)
+	id_santri	= models.CharField(max_length = 8,blank=True, null=True)
+	nama_santri	= models.CharField(max_length = 30,blank=True, null=True)
+	nama_kamar	= models.CharField(max_length = 30,blank=True, null=True)
+	tempat_lahir	=models.CharField(max_length = 35,blank=True, null=True)
+	tgl_lahir	=models.CharField(max_length = 35,blank=True, null=True)
+	alamat	=models.CharField(max_length = 50,blank=True, null=True)
+	pendidikan	=models.CharField(max_length = 1500,blank=True, null=True)
+	nama_wali	=models.CharField(max_length = 30,blank=True, null=True)
+	nomer_hp	=models.CharField(max_length = 13,blank=True, null=True)
 
 	published = models.DateTimeField(auto_now_add = True)
 	updated = models.DateTimeField(auto_now = True)

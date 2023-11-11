@@ -8,7 +8,7 @@ from .forms import RegisterForm
 from .decorators import tolakhalaman_ini, ijinkan_pengguna, pilihan_login
 from django.contrib.auth.decorators import login_required
 
-from .models import Model_guru, Model_pengurus, Model_santri2, Model_pelanggaran2, Model_kamar, Model_pendidikan
+from .models import Model_pengurus, Model_santri2, Model_pelanggaran2, Model_kamar, Model_pendidikan
 import hashlib
 
 @tolakhalaman_ini
@@ -28,9 +28,6 @@ def index(request):
 		
 
 	return render(request, 'index.html',  context)
-
-# @login_required(login_url='login')
-# @pilihan_login
 def HomeView(request):	
 	jumlah = Model_pelanggaran2.objects.count()
 	context = {
@@ -82,7 +79,8 @@ def Tambah_Santri(request):
 			id_santri = request.POST['id_santri'],
 			nama_santri = request.POST['nama_santri'],
 			nama_kamar = request.POST['nama_kamar'],
-			tempat_tgl_lahir = request.POST['tempat_tgl_lahir'],			
+			tempat_lahir = request.POST['tempat_lahir'],			
+			tgl_lahir = request.POST['tgl_lahir'],			
 			alamat = request.POST['alamat'],			
 			pendidikan = request.POST['pendidikan'],			
 			nama_wali = request.POST['nama_wali'],
@@ -115,7 +113,8 @@ def Edit_Santri(request, id_s):
 			edit_santri.id_santri = request.POST.get('id_santri')
 			edit_santri.nama_santri = request.POST.get('nama_santri')			
 			edit_santri.nama_kamar = request.POST.get('nama_kamar')	
-			edit_santri.tempat_tgl_lahir = request.POST.get('tempat_tgl_lahir')						
+			edit_santri.tempat_lahir = request.POST.get('tempat_lahir')						
+			edit_santri.tgl_lahir = request.POST.get('tgl_lahir')						
 			edit_santri.alamat = request.POST.get('alamat')						
 			edit_santri.pendidikan = request.POST.get('pendidikan')						
 			edit_santri.nama_wali = request.POST.get('nama_wali')
@@ -446,67 +445,69 @@ def Edit_pendidikan(request, id_pendidikan):
 	context = {'edit_data': edit_data}
 	return render(request, 'Master_data/data_pendidikan/edit.html',  context)
 
-# Guru
-@ijinkan_pengguna(yang_diizinkan=['admin'])
-@login_required(login_url='login')
-def Data_guru(request):
-	tampil_guru = Model_guru.objects.all()
-	context = {	
-	'tampil_guru': tampil_guru,
-	}
-	return render(request, 'Master_data/data_guru/tabel.html',  context)	
+# # Guru
+# @ijinkan_pengguna(yang_diizinkan=['admin'])
+# @login_required(login_url='login')
+# def Data_guru(request):
+# 	tampil_guru = Model_guru.objects.all()
+# 	context = {	
+# 	'tampil_guru': tampil_guru,
+# 	}
+# 	return render(request, 'Master_data/data_guru/tabel.html',  context)	
 
-@ijinkan_pengguna(yang_diizinkan=['admin'])
-@login_required(login_url='login')
-def Tambah_guru(request):
-	if request.method == 'POST':
-		Model_guru.objects.create(
-			nip = request.POST['nip'],
-			nama_guru = request.POST['nama_guru'],
-			staff = request.POST['staff'],
-			tempat_tgl_lahir = request.POST['tempat_tgl_lahir'],			
-			alamat = request.POST['alamat'],			
-			bidang_studi_yang_diampu = request.POST['bidang_studi_yang_diampu'],			
-			# nama_wali = request.POST['nama_wali'],
-			nomer_hp = request.POST['nomer_hp'],
-			)
-		messages.info(request, 'Data Berhasil Di Simpan..')
-		return HttpResponseRedirect("/Guru/")	
-	context = {	
-	'Tambah': 'Tambah',
-	}
-	return render(request, 'Master_data/data_guru/tambah.html', context)
-@ijinkan_pengguna(yang_diizinkan=['admin'])
-@login_required(login_url='login')
-def Hapus_guru(request, hapus_guru):
-	Model_guru.objects.filter(id=hapus_guru).delete()
-	messages.info(request, 'Data Berhasil Di Hapus..')
-	return redirect('Guru')			
+# @ijinkan_pengguna(yang_diizinkan=['admin'])
+# @login_required(login_url='login')
+# def Tambah_guru(request):
+# 	if request.method == 'POST':
+# 		Model_guru.objects.create(
+# 			nip = request.POST['nip'],
+# 			nama_guru = request.POST['nama_guru'],
+# 			staff = request.POST['staff'],
+# 			tempat_lahir = request.POST['tempat_lahir'],			
+# 			tgl_lahir = request.POST['tgl_lahir'],						
+# 			alamat = request.POST['alamat'],			
+# 			bidang_studi_yang_diampu = request.POST['bidang_studi_yang_diampu'],			
+# 			# nama_wali = request.POST['nama_wali'],
+# 			nomer_hp = request.POST['nomer_hp'],
+# 			)
+# 		messages.info(request, 'Data Berhasil Di Simpan..')
+# 		return HttpResponseRedirect("/Guru/")	
+# 	context = {	
+# 	'Tambah': 'Tambah',
+# 	}
+# 	return render(request, 'Master_data/data_guru/tambah.html', context)
+# @ijinkan_pengguna(yang_diizinkan=['admin'])
+# @login_required(login_url='login')
+# def Hapus_guru(request, hapus_guru):
+# 	Model_guru.objects.filter(id=hapus_guru).delete()
+# 	messages.info(request, 'Data Berhasil Di Hapus..')
+# 	return redirect('Guru')			
 
-@ijinkan_pengguna(yang_diizinkan=['admin'])
-@login_required(login_url='login')
-def Edit_guru(request, id_guru):	
-	# select_pendidikan = Model_pendidikan.objects.all()	
-	# select_kamar = Model_kamar.objects.all()	
-	edit_guru = Model_guru.objects.get(id=id_guru)
-	if request.method == 'POST':		
-			edit_guru.nip = request.POST.get('nip')
-			edit_guru.nama_guru = request.POST.get('nama_guru')			
-			edit_guru.staff = request.POST.get('staff')	
-			edit_guru.tempat_tgl_lahir = request.POST.get('tempat_tgl_lahir')						
-			edit_guru.alamat = request.POST.get('alamat')						
-			edit_guru.bidang_studi_yang_diampu = request.POST.get('bidang_studi_yang_diampu')						
-			edit_guru.nomer_hp  = request.POST.get('nomer_hp ')
-			edit_guru.save()		
-			messages.info(request, 'Data Berhasil Di Edit..')
-			return redirect('Guru')
+# @ijinkan_pengguna(yang_diizinkan=['admin'])
+# @login_required(login_url='login')
+# def Edit_guru(request, id_guru):	
+# 	# select_pendidikan = Model_pendidikan.objects.all()	
+# 	# select_kamar = Model_kamar.objects.all()	
+# 	edit_guru = Model_guru.objects.get(id=id_guru)
+# 	if request.method == 'POST':		
+# 			edit_guru.nip = request.POST.get('nip')
+# 			edit_guru.nama_guru = request.POST.get('nama_guru')			
+# 			edit_guru.staff = request.POST.get('staff')	
+# 			edit_guru.tempat_lahir = request.POST.get('tempat_lahir')						
+# 			edit_guru.tgl_lahir = request.POST.get('tgl_lahir')						
+# 			edit_guru.alamat = request.POST.get('alamat')						
+# 			edit_guru.bidang_studi_yang_diampu = request.POST.get('bidang_studi_yang_diampu')						
+# 			edit_guru.nomer_hp  = request.POST.get('nomer_hp ')
+# 			edit_guru.save()		
+# 			messages.info(request, 'Data Berhasil Di Edit..')
+# 			return redirect('Guru')
 
-	context = {
-	'edit_guru': edit_guru, 
-	# 'select_kamar': select_kamar,
-	# 'select_pendidikan': select_pendidikan
-	}
-	return render(request, 'Master_data/data_guru/edit.html',  context)
+# 	context = {
+# 	'edit_guru': edit_guru, 
+# 	# 'select_kamar': select_kamar,
+# 	# 'select_pendidikan': select_pendidikan
+# 	}
+# 	return render(request, 'Master_data/data_guru/edit.html',  context)
 
 # pelanggaran
 @ijinkan_pengguna(yang_diizinkan=['admin'])

@@ -26,10 +26,10 @@ urlpatterns = [
     path(r'edit_pendidikan/?P<id_pendidikan>[0-9]+)', views.Edit_pendidikan, name='edit_pendidikan'),
    
     #  Guru   
-    path(r'Guru/', views.Data_guru, name='Guru'),
-    path(r'Tambah_guru/', views.Tambah_guru, name='Tambah_guru'),
-    path(r'hapus_guru/?P<hapus_guru>[0-9]+)', views.Hapus_guru, name='hapus_guru'),
-    path(r'edit_guru/?P<id_guru>[0-9]+)', views.Edit_guru, name='edit_guru'),
+    # path(r'Guru/', views.Data_guru, name='Guru'),
+    # path(r'Tambah_guru/', views.Tambah_guru, name='Tambah_guru'),
+    # path(r'hapus_guru/?P<hapus_guru>[0-9]+)', views.Hapus_guru, name='hapus_guru'),
+    # path(r'edit_guru/?P<id_guru>[0-9]+)', views.Edit_guru, name='edit_guru'),
 
     # # pelanggaran
     path(r'Pelanggaran/', views.Data_Pelanggaran, name='Pelanggaran'),
